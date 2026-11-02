@@ -1,6 +1,7 @@
 import { Client, GatewayIntentBits, Partials, Events, REST, Routes } from 'discord.js';
 import { commands, handleCommand } from './src/commands.js';
 import { registerEvents } from './src/events.js';
+import { registerConfess } from './src/confess.js';
 
 const token = (process.env.DISCORD_TOKEN || '').trim();
 if (!token) {
@@ -48,6 +49,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 });
 
 registerEvents(client, Events);
+registerConfess(client);
 
 client.login(token).catch((error) => {
   if (String(error.code) === 'TokenInvalid' || String(error).includes('TOKEN_INVALID')) {
