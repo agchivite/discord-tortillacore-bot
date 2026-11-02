@@ -1,7 +1,7 @@
 import { Events } from "discord.js";
 
 const CONFESS_CHANNEL_ID =
-    process.env.CONFESS_CHANNEL_ID || "1512389701552701443";
+    process.env.CONFESS_CHANNEL_ID || "1566779738352263168";
 
 export function registerConfess(client) {
     client.on(Events.MessageCreate, async (message) => {
