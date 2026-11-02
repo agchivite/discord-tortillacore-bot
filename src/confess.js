@@ -17,5 +17,17 @@ export function registerConfess(client) {
         } catch (err) {
             console.error("[confess] no pude borrar el mensaje:", err.message);
         }
+
+        try {
+            const notice = await message.channel.send({
+                content: `${message.author}, para escribir aquí debes poner \`/confess\`.`,
+            });
+
+            setTimeout(() => {
+                notice.delete().catch(() => {});
+            }, 5000);
+        } catch (err) {
+            console.error("[confess] no pude enviar el aviso:", err.message);
+        }
     });
 }
